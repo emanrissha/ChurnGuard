@@ -1,8 +1,7 @@
 # Data (never commit raw data)
 data/raw/
 data/processed/
-models/*.pkl
-models/*.json
+models/.gitkeep
 
 # Env
 .env
