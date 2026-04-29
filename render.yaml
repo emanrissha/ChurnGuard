@@ -12,7 +12,7 @@ services:
     name: churnguard-dashboard
     runtime: python
     buildCommand: "pip install -r requirements.txt && pip install -e ."
-    startCommand: "streamlit run dashboard/app.py --server.port $PORT --server.address 0.0.0.0"
+    startCommand: "streamlit run dashboard/app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
