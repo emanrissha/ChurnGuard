@@ -2,7 +2,7 @@ services:
   - type: web
     name: churnguard-api
     runtime: python
-    buildCommand: "pip install -r requirements.txt && pip install -e ."
+    buildCommand: "pip install -r requirements.txt && pip install -e . && mkdir -p data/raw && curl -L 'https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv' -o data/raw/telco_churn.csv"
     startCommand: "uvicorn api.main:app --host 0.0.0.0 --port $PORT"
     envVars:
       - key: PYTHON_VERSION
@@ -11,7 +11,7 @@ services:
   - type: web
     name: churnguard-dashboard
     runtime: python
-    buildCommand: "pip install -r requirements.txt && pip install -e ."
+    buildCommand: "pip install -r requirements.txt && pip install -e . && mkdir -p data/raw && curl -L 'https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv' -o data/raw/telco_churn.csv"
     startCommand: "streamlit run dashboard/app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true"
     envVars:
       - key: PYTHON_VERSION
