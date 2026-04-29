@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-from typing import Optional
 
 
 class CustomerFeatures(BaseModel):
@@ -30,8 +29,8 @@ class CustomerFeatures(BaseModel):
     PaymentMethod_Electronic_check: int = Field(..., ge=0, le=1)
     PaymentMethod_Mailed_check: int = Field(..., ge=0, le=1)
 
-    class Config:
-        json_schema_extra = {
+    model_config = {
+        "json_schema_extra": {
             "example": {
                 "gender": 1,
                 "SeniorCitizen": 0,
@@ -61,6 +60,7 @@ class CustomerFeatures(BaseModel):
                 "PaymentMethod_Mailed_check": 0,
             }
         }
+    }
 
 
 class PredictionResponse(BaseModel):
@@ -73,6 +73,7 @@ class PredictionResponse(BaseModel):
 
 
 class HealthResponse(BaseModel):
+    model_config = {"protected_namespaces": ()}
     status: str
     model_loaded: bool
     version: str

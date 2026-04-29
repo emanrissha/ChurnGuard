@@ -19,8 +19,8 @@ imbalanced-learn==0.12.3
 wandb==0.17.0
 
 # API
-fastapi==0.111.0
-uvicorn[standard]==0.30.0
+fastapi==0.115.12
+uvicorn[standard]==0.34.0
 pydantic==2.7.1
 
 # Dashboard
