@@ -1,11 +1,24 @@
 import pandas as pd
+import urllib.request
 from pathlib import Path
 from loguru import logger
 
 RAW_DATA_PATH = Path("data/raw/telco_churn.csv")
+DATA_URL = "https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv"
+
+
+def ensure_data_exists(path: Path = RAW_DATA_PATH) -> None:
+    if not path.exists():
+        logger.info(f"Data not found at {path} — downloading from source...")
+        path.parent.mkdir(parents=True, exist_ok=True)
+        urllib.request.urlretrieve(DATA_URL, path)
+        logger.info(f"Downloaded successfully to {path}")
+    else:
+        logger.info(f"Data found at {path}")
 
 
 def load_raw_data(path: Path = RAW_DATA_PATH) -> pd.DataFrame:
+    ensure_data_exists(path)
     logger.info(f"Loading raw data from {path}")
     df = pd.read_csv(path)
     logger.info(f"Loaded {len(df):,} rows x {df.shape[1]} columns")
