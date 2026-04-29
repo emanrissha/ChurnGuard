@@ -148,7 +148,13 @@ Response:
   "estimated_revenue_at_risk_ils": 6527.19
 }
 ```
+## 📡 Live API
 
+| Endpoint | URL |
+|----------|-----|
+| Health check | https://churnguard-api-9kut.onrender.com/health |
+| Interactive docs | https://churnguard-api-9kut.onrender.com/docs |
+| Predict endpoint | https://churnguard-api-9kut.onrender.com/predict |
 ---
 
 ## 🗂️ Project Structure
