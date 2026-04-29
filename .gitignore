@@ -1,0 +1,25 @@
+# Data (never commit raw data)
+data/raw/
+data/processed/
+models/*.pkl
+models/*.json
+
+# Env
+.env
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# W&B
+wandb/
+
+# IDE
+.vscode/
+.idea/
