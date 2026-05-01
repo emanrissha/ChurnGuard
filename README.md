@@ -1,5 +1,7 @@
 # 🛡️ ChurnGuard — B2B SaaS Churn Prediction Engine
 
+[![CI](https://github.com/emanrissha/ChurnGuard/actions/workflows/ci.yml/badge.svg)](https://github.com/emanrissha/ChurnGuard/actions/workflows/ci.yml)
+
 > Predicts which customers will cancel **30 days before they do** — with SHAP explanations and a live business dashboard.
 
 [![Python](https://img.shields.io/badge/Python-3.11-blue)](https://python.org)
