@@ -62,8 +62,7 @@ Top protective factors (SHAP):
 
 def generate_response(question: str, context: str) -> str:
     risk_level = "HIGH" if "HIGH" in context else "MEDIUM" if "MEDIUM" in context else "LOW"
-    prob_line = [l for l in context.split("\n") if "Churn Probability" in l][0]
-    prob = prob_line.split(": ")[1]
+    prob_line = [line for line in context.split("\n") if "Churn Probability" in line][0]
 
     response = f"""Based on the ChurnGuard analysis:
 
@@ -76,7 +75,7 @@ The top churn signals are:
         if line.startswith("- ") and "+" in line:
             response += f"\n{line}"
 
-    response += f"""
+    response += """
 
 **What protects them?**
 """

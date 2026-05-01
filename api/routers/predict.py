@@ -1,5 +1,4 @@
 import joblib
-import numpy as np
 import pandas as pd
 from fastapi import APIRouter, HTTPException
 from pathlib import Path

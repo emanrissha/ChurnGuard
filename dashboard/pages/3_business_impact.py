@@ -65,7 +65,6 @@ with col_left:
 
 with col_right:
     st.subheader("Revenue at Risk by Contract Type")
-    from src.data.loader import load_raw_data
     df_raw = load_raw_data().iloc[:len(probs)]
     df_raw = df_raw.dropna(subset=["TotalCharges"]).reset_index(drop=True)
     df_raw["churn_prob"] = probs

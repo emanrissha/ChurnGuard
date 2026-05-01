@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from loguru import logger
 from src.data.loader import load_raw_data
 

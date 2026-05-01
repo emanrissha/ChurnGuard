@@ -1,11 +1,10 @@
 import joblib
-import numpy as np
 import pandas as pd
 from pathlib import Path
 from loguru import logger
 from xgboost import XGBClassifier
 from sklearn.model_selection import (
-    train_test_split, cross_val_score, RandomizedSearchCV
+    train_test_split, RandomizedSearchCV
 )
 from src.models.evaluator import evaluate_model
 

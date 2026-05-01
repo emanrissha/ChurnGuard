@@ -1,5 +1,3 @@
-import numpy as np
-import pandas as pd
 from loguru import logger
 from sklearn.metrics import (
     f1_score, roc_auc_score, precision_score,

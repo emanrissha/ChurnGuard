@@ -57,7 +57,6 @@ def plot_global_importance(shap_values, X: pd.DataFrame, save_path: str = None):
 
 
 def plot_customer_waterfall(explainer, X: pd.DataFrame, customer_idx: int, save_path: str = None):
-    customer = X.iloc[customer_idx]
     shap_explanation = explainer(X.iloc[[customer_idx]])
     plt.figure(figsize=(10, 6))
     shap.plots.waterfall(shap_explanation[0], max_display=12, show=False)
