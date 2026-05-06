@@ -21,4 +21,4 @@ wandb/
 
 # IDE
 .vscode/
-.idea/
+.idea/.coverage
