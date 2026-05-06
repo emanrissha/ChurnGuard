@@ -1,6 +1,4 @@
 import streamlit as st
-import joblib
-from pathlib import Path
 from src.data.loader import load_raw_data
 from src.rag.chatbot import ask_churnguard
 
