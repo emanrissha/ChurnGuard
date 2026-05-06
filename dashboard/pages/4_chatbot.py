@@ -6,10 +6,12 @@ st.set_page_config(page_title="Chatbot", page_icon="🤖", layout="wide")
 st.title("🤖 ChurnGuard AI Chatbot")
 st.caption("Powered by Claude AI — ask about any customer in Hebrew or English")
 
+
 @st.cache_data
 def get_customer_ids():
     df = load_raw_data()
     return df["customerID"].tolist()
+
 
 customer_ids = get_customer_ids()
 selected_id = st.selectbox("Select a customer", customer_ids)
@@ -29,8 +31,11 @@ if prompt := st.chat_input("Ask in Hebrew or English... / שאל בעברית א
         st.markdown(prompt)
 
     with st.chat_message("assistant"):
-        with st.spinner("Analyzing..."):
-            response = ask_churnguard(selected_id, prompt)
+        with st.spinner("🤖 Claude is analyzing... (may take 30-60 seconds)"):
+            try:
+                response = ask_churnguard(selected_id, prompt)
+            except Exception as e:
+                response = f"❌ Error: {str(e)}\n\nMake sure ANTHROPIC_API_KEY is set in Render environment variables."
         st.markdown(response)
 
     st.session_state.messages.append({"role": "assistant", "content": response})
