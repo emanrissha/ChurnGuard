@@ -7,7 +7,7 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.35-red)](https://streamlit.io)
 
 
-> Predicts which customers will cancel **30 days before they do** — with SHAP explanations and a live business dashboard.
+**Predicts which customers will cancel ***30 days before they do*** — with SHAP explanations and a live business dashboard.**
 
 > **Live Dashboard:** https://churnguard-dashboard.onrender.com
 
