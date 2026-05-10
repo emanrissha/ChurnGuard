@@ -306,29 +306,64 @@ make docker-up
 ---
 
 ## 🗂️ Project Structure
-
+```
 ChurnGuard/
-|
 ├── src/
-|   |
-│   ├── data/           # Loader + preprocessor
-│   ├── features/       # 13 engineered features + selection
-│   ├── models/         # LR, RF, XGBoost + evaluator + registry
-│   ├── explainability/ # SHAP explainer
-│   └── rag/            # Claude AI chatbot
+│   ├── data/
+│   │   ├── loader.py          # Auto-download + load dataset
+│   │   └── preprocessor.py    # Clean, encode, split
+│   ├── features/
+│   │   ├── engineering.py     # 13 engineered features
+│   │   └── selection.py       # Feature importance filtering
+│   ├── models/
+│   │   ├── baseline.py        # Logistic Regression
+│   │   ├── random_forest.py   # Random Forest
+│   │   ├── xgboost_model.py   # XGBoost champion
+│   │   ├── evaluator.py       # F1, AUC, business cost matrix
+│   │   └── registry.py        # Model versioning
+│   ├── explainability/
+│   │   └── shap_explainer.py  # SHAP global + per-customer
+│   └── rag/
+│       ├── chatbot.py         # Claude AI chatbot
+│       ├── retriever.py       # Customer context builder
+│       └── prompts.py         # Hebrew + English prompts
 ├── api/
-│   ├── routers/        # /predict, /explain, /health
-│   ├── schemas.py      # Pydantic models
-│   └── middleware.py   # Request logging
+│   ├── routers/
+│   │   ├── predict.py         # POST /predict
+│   │   ├── explain.py         # GET /explain/{customer_id}
+│   │   └── health.py          # GET /health
+│   ├── schemas.py             # Pydantic request/response models
+│   ├── middleware.py          # Request logging
+│   └── main.py                # FastAPI app
 ├── dashboard/
-│   ├── pages/          # 4-page Streamlit app
-│   └── components/     # Reusable charts + filters
-├── notebooks/          # 5 Jupyter notebooks
-├── tests/              # 23 pytest tests
-├── models/             # Saved artifacts
+│   ├── pages/
+│   │   ├── 1_risk_table.py        # All customers ranked by risk
+│   │   ├── 2_customer_deep_dive.py # Per-customer SHAP waterfall
+│   │   ├── 3_business_impact.py   # ₪ ROI calculator
+│   │   └── 4_chatbot.py           # Claude AI chat interface
+│   ├── components/
+│   │   ├── charts.py          # Reusable Plotly charts
+│   │   └── filters.py         # Sidebar filter components
+│   └── app.py                 # Streamlit entry point
+├── notebooks/
+│   ├── 01_eda.ipynb               # Exploratory data analysis
+│   ├── 02_feature_engineering.ipynb
+│   ├── 03_model_training.ipynb
+│   ├── 04_shap_analysis.ipynb
+│   └── 05_business_framing.ipynb
+├── tests/
+│   ├── test_features.py       # Feature engineering tests
+│   ├── test_model.py          # Model performance tests
+│   └── test_api.py            # API endpoint tests
+├── models/
+│   ├── xgb_v1.pkl             # Trained XGBoost model
+│   └── shap_explainer_v1.pkl  # SHAP explainer
 ├── Dockerfile
 ├── docker-compose.yml
-└── render.yaml
+├── render.yaml
+├── Makefile
+└── requirements.txt
+```
 
 ---
 
