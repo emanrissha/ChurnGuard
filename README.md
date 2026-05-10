@@ -27,7 +27,7 @@ Customer Success teams are reactive. They call customers after they've already d
 
 This is the reality for most SaaS companies in Israel and worldwide.
 
----
+
 
 ## 💡 The Solution
 
