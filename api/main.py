@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.routers import predict, health
+from api.middleware import log_requests
+from api.routers import predict, health, explain
 
 app = FastAPI(
     title="ChurnGuard API",
@@ -15,8 +16,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+app.middleware("http")(log_requests)
+
 app.include_router(health.router)
 app.include_router(predict.router)
+app.include_router(explain.router)
 
 
 @app.get("/", tags=["Root"])
