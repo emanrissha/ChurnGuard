@@ -307,23 +307,28 @@ make docker-up
 
 ## 🗂️ Project Structure
 
-
-## 🗂️ Project Structure
 ChurnGuard/
+|
 ├── src/
-
-│   ├── data/          # Loader + preprocessor
-│   ├── features/      # 15+ engineered features
-│   ├── models/        # LR, RF, XGBoost + evaluator
-│   ├── explainability/# SHAP explainer
-│   └── rag/           # LangChain chatbot
-├── api/               # FastAPI endpoints
-├── dashboard/         # Streamlit 4-page app
-├── models/            # Saved model artifacts
-├── data/              # Raw + processed data
-├── tests/             # pytest suite
+|   |
+│   ├── data/           # Loader + preprocessor
+│   ├── features/       # 13 engineered features + selection
+│   ├── models/         # LR, RF, XGBoost + evaluator + registry
+│   ├── explainability/ # SHAP explainer
+│   └── rag/            # Claude AI chatbot
+├── api/
+│   ├── routers/        # /predict, /explain, /health
+│   ├── schemas.py      # Pydantic models
+│   └── middleware.py   # Request logging
+├── dashboard/
+│   ├── pages/          # 4-page Streamlit app
+│   └── components/     # Reusable charts + filters
+├── notebooks/          # 5 Jupyter notebooks
+├── tests/              # 23 pytest tests
+├── models/             # Saved artifacts
 ├── Dockerfile
-└── docker-compose.yml
+├── docker-compose.yml
+└── render.yaml
 
 ---
 
