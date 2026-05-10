@@ -37,7 +37,7 @@ It doesn't just flag a customer as "at risk." It tells you **why** they're at ri
 
 Built the way Monday.com, Riskified, and Similarweb actually build ML systems — not a Jupyter notebook, a production system.
 
----
+
 
 ## 🎯 What We Solve
 
@@ -49,7 +49,6 @@ Built the way Monday.com, Riskified, and Similarweb actually build ML systems �
 | "Our CS team doesn't know what action to take" | Claude AI chatbot gives actionable recommendations in Hebrew or English |
 | "We can't justify the budget for retention efforts" | Business cost calculator shows exact ROI per intervention |
 
----
 
 ## 📊 The Results
 
