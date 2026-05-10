@@ -17,7 +17,7 @@ def ask_churnguard(customer_id: str, question: str) -> str:
     client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
     message = client.messages.create(
         model="claude-opus-4-5",
-        max_tokens=500,
+        max_tokens=1024,
         system=SYSTEM_PROMPT,
         messages=[{"role": "user", "content": prompt}]
     )
