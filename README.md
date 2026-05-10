@@ -27,7 +27,7 @@ Customer Success teams are reactive. They call customers after they've already d
 
 This is the reality for most SaaS companies in Israel and worldwide.
 
-
+---
 
 ## 💡 The Solution
 
@@ -37,7 +37,7 @@ It doesn't just flag a customer as "at risk." It tells you **why** they're at ri
 
 Built the way Monday.com, Riskified, and Similarweb actually build ML systems — not a Jupyter notebook, a production system.
 
-
+---
 
 ## 🎯 What We Solve
 
@@ -49,6 +49,7 @@ Built the way Monday.com, Riskified, and Similarweb actually build ML systems �
 | "Our CS team doesn't know what action to take" | Claude AI chatbot gives actionable recommendations in Hebrew or English |
 | "We can't justify the budget for retention efforts" | Business cost calculator shows exact ROI per intervention |
 
+---
 
 ## 📊 The Results
 
@@ -141,21 +142,31 @@ Most ML models are black boxes. ChurnGuard explains every prediction in plain la
 
 **Example — Customer 7590-VHVEG (83.3% churn probability):**
 
-🔴 HIGH RISK — Churn Probability: 83.3%
-Top risk factors:
-↑ Month-to-month contract    +0.459  (biggest driver)
-↑ Risk score (composite)     +0.457  (engineered feature)
-↑ Only 1 month tenure        +0.386  (new customer)
-↑ High total charges         +0.116
-↑ No long-term commitment    +0.087
-Top protective factors:
-↓ Low monthly charges        -0.112  (price not the issue)
-↓ Avg monthly revenue        -0.087
-Recommended action: Call within 48 hours.
-Offer 20% discount on annual contract upgrade.
-Revenue at risk: ₪6,666
+***🔴 HIGH RISK — Churn Probability: 83.3%***
 
----
+Top risk factors:
+
+↑ Month-to-month contract    +0.459  (biggest driver)
+
+↑ Risk score (composite)     +0.457  (engineered feature)
+
+↑ Only 1 month tenure        +0.386  (new customer)
+
+↑ High total charges         +0.116
+
+↑ No long-term commitment    +0.087
+
+Top protective factors:
+
+↓ Low monthly charges        -0.112  (price not the issue)
+
+↓ Avg monthly revenue        -0.087
+
+Recommended action: Call within 48 hours.
+
+Offer 20% discount on annual contract upgrade.
+
+Revenue at risk: ₪6,666
 
 ---
 
@@ -300,6 +311,7 @@ make docker-up
 ## 🗂️ Project Structure
 ChurnGuard/
 ├── src/
+
 │   ├── data/          # Loader + preprocessor
 │   ├── features/      # 15+ engineered features
 │   ├── models/        # LR, RF, XGBoost + evaluator
