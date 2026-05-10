@@ -81,33 +81,56 @@ Trained and evaluated on **7,032 real B2B SaaS customers:**
 ## 🏗️ How It Works
 Raw Data (7,043 customers, 21 features)
 
-↓
+          ↓
 
 Data Cleaning
+
 (fix TotalCharges, encode categoricals)
-↓
+
+          ↓
+
 Feature Engineering
-(13 new features: risk_score, tenure_cohort,
-avg_monthly_revenue, product_count...)
-↓
+
+(13 new features: risk_score, tenure_cohort,avg_monthly_revenue,product_count...)
+
+          ↓
+
 Model Training & Selection
+
 Logistic Regression → baseline
+
 Random Forest       → ensemble
+
 XGBoost (tuned)     → champion ✅
-↓
+
+          ↓
+
 SHAP Explainability
+
 (global importance + per-customer waterfall)
-↓
+
+          ↓
+
 FastAPI
+
 /predict → churn probability + SHAP
+
 /explain → full customer breakdown
+
 /health  → service status
-↓
+
+          ↓
+
 Streamlit Dashboard
+
 Risk Table | Deep Dive | Business Impact | Chatbot
-↓
+
+          ↓
+
 Claude AI Chatbot
+
 "למה הלקוח הזה בסיכון?" → Hebrew answer
+
 "Why is this customer at risk?" → English answer
 
 ---
