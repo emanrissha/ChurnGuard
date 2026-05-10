@@ -80,59 +80,78 @@ Trained and evaluated on **7,032 real B2B SaaS customers:**
 ---
 
 ## 🏗️ How It Works
-Raw Data (7,043 customers, 21 features)
 
-          ↓
-
-Data Cleaning
-
-(fix TotalCharges, encode categoricals)
-
-          ↓
-
-Feature Engineering
-
-(13 new features: risk_score, tenure_cohort,avg_monthly_revenue,product_count...)
-
-          ↓
-
-Model Training & Selection
-
-Logistic Regression → baseline
-
-Random Forest       → ensemble
-
-XGBoost (tuned)     → champion ✅
-
-          ↓
-
-SHAP Explainability
-
-(global importance + per-customer waterfall)
-
-          ↓
-
-FastAPI
-
-/predict → churn probability + SHAP
-
-/explain → full customer breakdown
-
-/health  → service status
-
-          ↓
-
-Streamlit Dashboard
-
-Risk Table | Deep Dive | Business Impact | Chatbot
-
-          ↓
-
-Claude AI Chatbot
-
-"למה הלקוח הזה בסיכון?" → Hebrew answer
-
-"Why is this customer at risk?" → English answer
+```
+┌─────────────────────────────────────────┐
+│     Raw Data                            │
+│     7,043 customers · 21 features       │
+│     IBM Telco Customer Churn Dataset    │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│     Data Cleaning                       │
+│     • Fix TotalCharges (hidden spaces)  │
+│     • Encode categoricals              │
+│     • Drop 11 invalid rows             │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│     Feature Engineering                 │
+│     • risk_score     • tenure_cohort   │
+│     • avg_monthly_revenue              │
+│     • product_count  • is_loyal        │
+│     13 new features → 39 total         │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│     Model Training & Selection          │
+│                                         │
+│  Logistic Regression  →  baseline       │
+│  Random Forest        →  ensemble       │
+│  XGBoost (tuned)      →  champion ✅   │
+│                                         │
+│  Evaluated on F1 + ₪ business cost     │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│     SHAP Explainability                 │
+│     • Global feature importance        │
+│     • Per-customer waterfall chart     │
+│     • Top risk + protective factors    │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│     FastAPI — Live Inference            │
+│                                         │
+│  POST /predict  → churn probability    │
+│  GET  /explain  → full breakdown       │
+│  GET  /health   → service status       │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│     Streamlit Dashboard                 │
+│                                         │
+│  📋 Risk Table      🔍 Deep Dive       │
+│  💰 Business Impact 🤖 Chatbot         │
+└──────────────────┬──────────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────────┐
+│     Claude AI Chatbot                   │
+│                                         │
+│  "למה הלקוח הזה בסיכון?"              │
+│   → תשובה מקצועית בעברית              │
+│                                         │
+│  "Why is this customer at risk?"       │
+│   → Actionable English response        │
+└─────────────────────────────────────────┘
+```
 
 ---
 
